@@ -42,16 +42,16 @@ public class DemoApplication implements CommandLineRunner {
         ActorRef actorRef03
                 = actorSystem.actorOf(Props.create(MyActor.class), "myActor03");
 
-        FiniteDuration duration = FiniteDuration.create(1, TimeUnit.SECONDS);
+        FiniteDuration duration = FiniteDuration.create(3, TimeUnit.SECONDS);
         Timeout timeout = Timeout.durationToTimeout(duration);
 
         ask(actorRef01, 1, timeout);
-        ask(actorRef02, 2, Duration.ofMillis(5000));
-        ask(actorRef03, 3, Duration.ofMillis(5000));
+        ask(actorRef02, 2, timeout);
+        ask(actorRef03, 3, timeout);
 
-        actorSystem.stop(actorRef01);
-        actorSystem.stop(actorRef02);
-        actorSystem.stop(actorRef03);
+        //actorSystem.stop(actorRef01);
+        //actorSystem.stop(actorRef02);
+        //actorSystem.stop(actorRef03);
 
     }
 }

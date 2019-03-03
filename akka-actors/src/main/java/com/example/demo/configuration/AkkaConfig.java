@@ -7,13 +7,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AkkaConfig {
 
+    //TODO:
     @Bean
     public ActorSystem getActorSystem() {
         return ActorSystem.create("EddyActorSystem");
     }
-
-
-
 
     //final Config settings = ConfigFactory.load();
     //return ActorSystem.create("EddyActorSystem", settings);
